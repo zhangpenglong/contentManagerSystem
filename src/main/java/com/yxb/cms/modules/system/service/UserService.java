@@ -436,5 +436,20 @@ public class UserService {
 
 
 
+    /**
+     *功能描述  根据姓名精确查询管家
+     *@Author  zhangpl
+     *@Date 2018/9/25 17:02
+     * @param  * @param name
+     * @return java.util.List<com.yxb.cms.modules.system.domain.vo.User>
+     */
+    public List<User> listByNameEquals(String name){
+        return userMapper.listByNameEquals(name);
+    }
+
+
+    public List<Dic> listAddress(String name){
+        return userMapper.listAddress(name);
+    }
 
 }

@@ -326,5 +326,15 @@
     select user_id AS userId,user_name AS userName  from cc_user  WHERE  user_name LIKE CONCAT('%', #{name}, '%') AND  user_status = 0
   </select>
 
+  <!-- 根据姓名查管家 -->
+  <select id="listByNameEquals" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select *  from cc_user  WHERE  user_name = #{name}  AND  user_status = 0
+  </select>
+
+  <!-- 查询地区根据名字 -->
+  <select id="listAddress" resultType="com.yxb.cms.modules.system.domain.vo.Dic" parameterType="java.lang.String">
+    SELECT * FROM cc_dic  where type = 1 AND value = #{name}
+  </select>
+
 
 </mapper>

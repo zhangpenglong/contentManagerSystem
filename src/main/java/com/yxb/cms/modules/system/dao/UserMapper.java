@@ -33,6 +33,7 @@
 package com.yxb.cms.modules.system.dao;
 
 
+import com.yxb.cms.modules.system.domain.vo.Dic;
 import com.yxb.cms.modules.system.domain.vo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -144,9 +145,27 @@ public interface UserMapper {
 
 
     List<User> selectManage(Integer address);
-    List<User> listByName(String name);
 
-    
+    /**
+     *功能描述  根据姓名模糊查询管家
+     *@Author  zhangpl
+     *@Date 2018/9/25 17:02
+     * @param  * @param name
+     * @return java.util.List<com.yxb.cms.modules.system.domain.vo.User>
+     */
+    List<User> listByName(String name);
+    /**
+    *功能描述  根据姓名精确查询管家
+    *@Author  zhangpl
+    *@Date 2018/9/25 17:02
+    * @param  * @param name
+    * @return java.util.List<com.yxb.cms.modules.system.domain.vo.User>
+    */
+    List<User> listByNameEquals(String name);
+    List<Dic> listAddress(String name);
+
+
+
     
     
 }

@@ -108,6 +108,12 @@
                     </div>
                 </shiro:hasPermission>
 
+                <shiro:hasPermission name="xy5XR62Y">
+                    <div class="layui-inline">
+                        <button type="button" class="layui-btn" id="uploadExcel"><i class="layui-icon"></i>导入会员</button>
+                    </div>
+                </shiro:hasPermission>
+
             </blockquote>
             <div class="larry-separate"></div>
             <!-- 用户列表 -->
@@ -122,12 +128,24 @@
     var $;
     layui.config({
         base : "${ctx}/static/js/"
-    }).use(['form', 'table', 'layer','common'], function () {
+    }).use(['form', 'table', 'layer','common','element','upload'], function () {
          $ =  layui.$;
                 var form = layui.form,
                 table = layui.table,
                 layer = layui.layer,
-                common = layui.common;
+                common = layui.common,
+                element = layui.element;
+                upload = layui.upload;
+
+        upload.render({
+            elem: '#uploadExcel'
+            ,url: '${ctx}/member/member_add_batch.do'
+            ,accept: 'file' //普通文件
+            ,multiple: true
+            ,done: function(res){
+                console.log(res);
+            }
+        });
 
         var loading = layer.load(0,{ shade: [0.3,'#000']});
         /**用户表格加载*/
